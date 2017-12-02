@@ -1,0 +1,28 @@
+When clicking on create recipe
+- Opens a form to fill in new soap recipe
+- Form will ask for:
+- Soap name (User to enter in new soap name)
+  What ingredient type to add:  (show dropdown of what is available)
+  If not available, give user option to add new type
+
+  What ingredient of chosen type to add (show dropdown of what is available)
+  If not available, give user option to add new ingredient of chosen type
+
+  What quantity of the ingredient (if ingredient is a design, don't ask this)
+  What unit to use for the quantity
+
+What process will do with information:
+- Will insert into recipes:
+  - soap_id
+  - ingredient_id
+  - ingredient amount (not if ingredient is a design type)
+  - unit_id (not if ingredient is a design type)
+(Remember to allow user to enter multiple ingredients for this same soap_id)
+
+What to collect in variables:
+- Collect soap data into an array, to store multiple ingredients
+
+
+
+When clicking on view recipe
+- Show a dropdown of all soap names
