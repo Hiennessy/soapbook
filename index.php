@@ -1,3 +1,13 @@
+<?php
+//ini_set('disply_errors', 'On'); error_reporting(E_ALL | E_STRICT);
+include 'functions/functions.php';
+
+if ($_POST) {
+    echo $_POST['soapname'];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +24,12 @@
        <button id="view-btn">View Recipe</button>
       </div> 
       <div class="recipe-form">
-          <form method="post" action="process.php">
-              Soap Name: <input type="text" name="soapname"><br>
-              Ingred Name: <input type="text" name="ingredient"><br>
-              Amount: <input type="text" name="amount"><br>
-              <input type="submit" value="submit">
+          <form method="post" action="index.php">
+              <select name="soapname" id="soap">
+                  <option value="soap">Lavender</option>
+                  <option value="soap">Orange</option>
+                  <input type="submit">
+              </select>
           </form>
       </div>
     </div>
