@@ -9,7 +9,7 @@
 function mysql($query) {
 
    $hostname = "localhost";
-   $username = "hiennessy";
+   $username = "root";
    $password = "password";
    $db       = "soapbook";
 

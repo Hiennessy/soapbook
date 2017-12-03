@@ -3,8 +3,36 @@
 include 'functions/functions.php';
 
 if ($_POST) {
-    echo $_POST['soapname'];
+    echo $_POST['spname'] . '</br>';
+    echo $_POST['ingred'] . '</br>';
 }
+
+$qry = "SELECT name as 'Soap'
+        FROM soaps";
+
+$return = mysql($qry);
+
+// Loop through query and load array
+while ($row = mysqli_fetch_assoc($return)) {
+    $soaparr[] = array (
+        'soapname' => $row['Soap'],
+    );
+}
+
+$qry = "SELECT name as 'Ingredient'
+        FROM ingredients";
+
+$return = mysql($qry);
+
+// Loop through query and load array
+while ($row = mysqli_fetch_assoc($return)) {
+    $ingredarr[] = array (
+        'ingredient' => $row['Ingredient'],
+    );
+}
+// print_r($soaparr);
+// print_r($ingredarr);
+
 ?>
 
 
@@ -19,17 +47,29 @@ if ($_POST) {
 </head>
 <body>
     <div class="container">
-      <div class="item">
+      <!-- <div class="item"> 
        <button id="create-btn">Create Recipe</button>
        <button id="view-btn">View Recipe</button>
-      </div> 
+      </div> -->
       <div class="recipe-form">
           <form method="post" action="index.php">
-              <select name="soapname" id="soap">
-                  <option value="soap">Lavender</option>
-                  <option value="soap">Orange</option>
-                  <input type="submit">
-              </select>
+              <input list="soapnames" name="spname">
+              <input list="ingredients" name="ingred">
+              <datalist id="soapnames"> 
+                  <?php
+                  foreach ($soaparr as $x) {
+                  echo "<option value='" . $x['soapname'] . "'>" . $x['soapname'] . "</option>";
+                  }
+                  ?>
+              </datalist>
+              <datalist id="ingredients"> 
+                  <?php
+                  foreach ($ingredarr as $x) {
+                  echo "<option value='" . $x['ingredient'] . "'>" . $x['ingredient'] . "</option>";
+                  }
+                  ?>
+              </datalist>
+              <input type='submit'>
           </form>
       </div>
     </div>
