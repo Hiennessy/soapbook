@@ -3,8 +3,33 @@
 include 'functions/functions.php';
 
 if ($_POST) {
-    echo $_POST['spname'] . '</br>';
-    echo $_POST['ingred'] . '</br>';
+    // echo $_POST['spname'] . '</br>';
+    // echo $_POST['ingred'] . '</br>';
+$soap_name = $_POST['spname'];
+echo $soap_name;
+
+$qry = "SELECT
+        ingredients.name as 'Ingredient',
+        recipes.ingredient_amt as 'Amount',
+        units.name as 'Unit'
+        FROM recipes
+        LEFT JOIN soaps on recipes.soap_id = soaps.id
+        LEFT JOIN ingredients on recipes.ingredient_id = ingredients.id
+        LEFT JOIN units on recipes.unit_id = units.id
+        WHERE soaps.name = '$soap_name'";
+
+$return = mysql($qry);
+
+while ($row = mysqli_fetch_assoc($return)) {
+    $ingredarr[] = array (
+        'ingredient' => $row['Ingredient'],
+        'ingredamt'  => $row['Amount'],
+        'unit'       => $row['Unit']
+    );
+}
+
+// print_r($ingredarr);
+
 }
 
 $qry = "SELECT name as 'Soap'
@@ -18,20 +43,6 @@ while ($row = mysqli_fetch_assoc($return)) {
         'soapname' => $row['Soap'],
     );
 }
-
-$qry = "SELECT name as 'Ingredient'
-        FROM ingredients";
-
-$return = mysql($qry);
-
-// Loop through query and load array
-while ($row = mysqli_fetch_assoc($return)) {
-    $ingredarr[] = array (
-        'ingredient' => $row['Ingredient'],
-    );
-}
-// print_r($soaparr);
-// print_r($ingredarr);
 
 ?>
 
@@ -53,24 +64,25 @@ while ($row = mysqli_fetch_assoc($return)) {
       </div> -->
       <div class="recipe-form">
           <form method="post" action="index.php">
-              <input list="soapnames" name="spname">
-              <input list="ingredients" name="ingred">
-              <datalist id="soapnames"> 
+                <label for="soapname">Pick soap to see recipe</label>
+                <select name="spname" id="soapname">
                   <?php
                   foreach ($soaparr as $x) {
                   echo "<option value='" . $x['soapname'] . "'>" . $x['soapname'] . "</option>";
                   }
                   ?>
-              </datalist>
-              <datalist id="ingredients"> 
-                  <?php
-                  foreach ($ingredarr as $x) {
-                  echo "<option value='" . $x['ingredient'] . "'>" . $x['ingredient'] . "</option>";
-                  }
-                  ?>
-              </datalist>
-              <input type='submit'>
+                </select>
+              <input type='submit' value="Submit">
           </form>
+      </div>
+      <div class="showrecipe">
+      <h1>Here are the ingredients for your chosen soap</h1>
+      </br>
+      <?php
+                  foreach ($ingredarr as $x) {
+                  echo $x['ingredient'] . "   " . $x['ingredamt'] . "   " . $x['unit'] . "</br>"; 
+                  }
+      ?>
       </div>
     </div>
 </body>
