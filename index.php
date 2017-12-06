@@ -72,7 +72,7 @@ while ($row = mysqli_fetch_assoc($return)) {
                   }
                   ?>
                 </select>
-              <input type='submit' value="Submit">
+              <button type='submit'>Submit Now</button>
           </form>
       </div>
       <div class="showrecipe">
