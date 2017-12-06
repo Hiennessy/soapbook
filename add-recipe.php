@@ -27,11 +27,28 @@ while ($row = mysqli_fetch_assoc($return)) {
     );
 }
 
-// print_r($ingredarr);
-foreach ($ingredarr as $x) {
-    echo $x['ingred_id']; 
-    }
+$qry = "SELECT id as 'unitID'
+        FROM units 
+        WHERE name = '$unit'";
+
+$return = mysql($qry);
+
+while ($row = mysqli_fetch_assoc($return)) {
+    $unitarr[] = array (
+        'unit_id' => $row['unitID']
+    );
 }
+// print_r($ingredarr);
+// foreach ($ingredarr as $x) {
+    // echo $x['ingred_id']; 
+    // }
+
+    // echo $ingredarr[0]['ingred_id'] . '</br>';
+    echo $unitarr[0]['unit_id'] . '</br>';
+
+}
+
+
 ?>
 
 
@@ -42,7 +59,7 @@ foreach ($ingredarr as $x) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Add New Recipe</title>
-    <!-- <link rel="stylesheet" href="styles/addrecipe-style.css"> -->
+    <link rel="stylesheet" href="styles/addrecipe-style.css">
 </head>
 <body>
    <div class="container">
