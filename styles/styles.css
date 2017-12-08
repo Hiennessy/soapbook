@@ -4,12 +4,13 @@ body {
     grid-auto-rows: 800px;
     justify-items: center;
     align-items: center;
-
+    background-color: rgb(3, 143, 185);
+    background: url(../images/soap.jpg);
 }
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: 100px 100px; 
     grid-template-areas:
     "search search"
@@ -31,24 +32,36 @@ body {
 
 }
 
-#searchinput {
+input {
     width: 700px;
     height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    /* box-shadow: 1px 1px 1px;  */
     font-size: 24pt;
+    background-color: rgb(199, 238, 255); 
 
 }
 
-#search-btn {
-    height: 40px;
-    font-size: 18pt;
+input::placeholder {
+    opacity: 0.2;
+    text-align: center;
 }
 
-#add-rcp {
+input:focus {
+    background-color:white;
+
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+.btn {
     height: 50px;
     font-size: 18pt;
+    font-family: Georgia, Verdana, sans-serif;
+    /* box-shadow: 2px 2px 2px; */
+    border: 1px solid black;
 }
 
-#all-rcp {
-    height: 50px;
-    font-size: 18pt;
-}

@@ -17,14 +17,14 @@ include 'functions/functions.php';
 <body>
     <div class="container">
         <div class="searchdiv">
-            <form action="">
-                <input type="text" name="search" id="searchinput" placeholder="search for soap">
-                <!-- <button type="submit" id="search-btn">Search</button> -->
+            <form action="" autocomplete="off">
+                <input type="text" name="search" id="searchinput" placeholder="enter soap name to search">
             </form>
         </div>
         <div class="btndiv">
-            <button id="add-rcp">Add Recipe</button>
-            <button id="all-rcp">See All Recipes</button>
+            <button class="btn" id="search-btn">Search</button>
+            <button class="btn" id="add-rcp">Add Recipe</button>
+            <button class="btn" id="all-rcp">See All Recipes</button>
         </div>
     </div>
 </body>
