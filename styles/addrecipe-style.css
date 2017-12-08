@@ -33,28 +33,6 @@ input, textarea {
     border: 1px solid #999;
 }
 
-input[type=checkbox], input[type=radio] {
-    width: auto;
-    border: none;
-}
-
-input:focus, textarea:focus {
-    border-color: #000;
-}
-
-textarea {
-    vertical-align: top;
-    height: 5em;
-    resize: vertical;
-}
-
-fieldset {
-    width: 250px;
-    box-sizing: border-box;
-    margin-left: 136px;
-    border: 1px solid #999;
-}
-
 button {
     margin: 20px 0 0 124px;
 }

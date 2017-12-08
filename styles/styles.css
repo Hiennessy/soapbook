@@ -1,11 +1,54 @@
-.container {
-    display: flex;
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 800px;
+    justify-items: center;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+
 }
-.center-div {
-    background-color: #f3f2ef;
-    width: 200px;
-    height: 100px;
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 100px; 
+    grid-template-areas:
+    "search search"
+    "button button";
+
+}
+
+.searchdiv {
+    justify-self: center;
+    align-self: end;
+    grid-area: search;
+
+}
+
+.btndiv {
+    justify-self: center;
+    align-self: center;
+    grid-area: button;
+
+}
+
+#searchinput {
+    width: 700px;
+    height: 50px;
+    font-size: 24pt;
+
+}
+
+#search-btn {
+    height: 40px;
+    font-size: 18pt;
+}
+
+#add-rcp {
+    height: 50px;
+    font-size: 18pt;
+}
+
+#all-rcp {
+    height: 50px;
+    font-size: 18pt;
 }

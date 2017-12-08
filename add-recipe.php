@@ -63,20 +63,20 @@ while ($row = mysqli_fetch_assoc($return)) {
 </head>
 <body>
    <div class="container">
-      <form action="add-recipe.php" method="post">
+      <form action="add-recipe.php" method="post" autocomplete="off">
          <h1>Add New Recipe</h1>
          <section>
             <h2>Soap information</h2>
             <p>
-               <label for="name">
+               <!-- <label for="name">
                   <span>Soap Name: </span>
-               </label>
-               <input type="text" id="soapinput" name="soapname">
+               </label> -->
+               <input type="text" id="soapinput" name="soapname" placeholder="Soap Name">
             </p>
             <p>
-               <label for="ingredient">
+               <!-- <label for="ingredient">
                   <span>Ingredient: </span>
-               </label>
+               </label> -->
                <input type="text" id="ingredientinput" name="ingredient">
             </p>
             <p>

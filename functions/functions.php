@@ -1,44 +1,50 @@
 <?php
-/*****************************
- * function name: mysql 
+/******************************************************************************
+ * function name:  mysql
  * 
- * This function makes a mysql connection, runs a query and returns the query 
+ * description:    This function creates a mysql connection
+ *                 and takes in a query string as a parameter
+ *                 It will then run the query and return the results 
  * 
+ * parameters:     $query (this is a query string)
  * 
- *****************************/
+ * return:         The function will return the mysql database query results 
+ *****************************************************************************/
 function mysql($query) {
 
-   $hostname = "localhost";
-   $username = "root";
-   $password = "password";
-   $db       = "soapbook";
+  $hostname = "localhost";
+  $username = "root";
+  $password = "password";
+  $db       = "soapbook";
 
 
 // Create connection (OOP method)
-   $conn = new mysqli($hostname, $username, $password, $db);
+  $conn = new mysqli($hostname, $username, $password, $db);
 
-// Check connection (with OOP method)
-   if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-   }
-   //echo "Connected successfully!";
+// Check connection, if fail, then die and return error message
+  if ($conn->connect_error) {
+     die("Connection failed: " . $conn->connect_error);
+  }
 
 // Run query
-   $qryReturn = mysqli_query($conn, $query);
+  $qryReturn = mysqli_query($conn, $query);
 
 // Close connection
-   $conn->close();
+  $conn->close();
+
 // Return results
-   return $qryReturn;
+  return $qryReturn;
 
 }
 
-/*****************************
- * function name:  
- * 
- * 
- * 
- * 
- *****************************/
+/******************************************************************************
+ * function name:
+ *
+ * description:
+ *
+ * parameters:
+ *
+ * return:
+ *****************************************************************************/
 
 ?>
