@@ -1,6 +1,6 @@
 <?php
 //ini_set('disply_errors', 'On'); error_reporting(E_ALL | E_STRICT);
-include 'functions/functions.php';
+// include 'functions/functions.php';
 
 ?>
 
@@ -28,4 +28,14 @@ include 'functions/functions.php';
         </div>
     </div>
 </body>
+<script src="scripts/scripts.js"></script>
+<script>
+    
+var $searchbtn = document.getElementById("search-btn");
+$searchbtn.addEventListener("click", ajaxSuggest);
+
+var $addbtn = document.getElementById("add-rcp");
+$addbtn.addEventListener("click", ajaxAdd);
+
+</script>
 </html>

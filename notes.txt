@@ -1,0 +1,25 @@
+Typing search in search input
+1. Onkeyup - js function will run ajaxSearch with typed letter as form data to php
+2. PHP will detect ajax request, then send back list of suggestions
+3. js function will take list of suggestions and display them in a div
+
+Clicking search button
+1. On click - js function will run ajaxSearch with chosen name of soap that is in search input as form data to php
+2. PHP will detect ajax request, then send back all data of the chosen soap
+3. js will take soap data and display, maybe in recipe card style
+
+Clicking add recipe button
+1. On click - js will open new recipe create form, this form will ask for new soap name, ingredients, etc.
+2. On submitting - js will run ajax to send php form data
+3. PHP will take data and insert into database
+
+Clicking see all recipe button
+1. On click - js will run ajax to tell php that it wants all soap data
+2. PHP will do a query to get all soap data, then return to js
+3. js will take all data and display, maybe in recipe card style
+
+Questions:
+1. When js makes ajax request, how does PHP know which request it is for (search suggestions, search button, add recipe, or see recipes)?
+
+
+
