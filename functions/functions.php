@@ -38,11 +38,11 @@ function mysql($query) {
 }
 
 /******************************************************************************
- * function name:
+ * function name: ajaxRequest
  *
- * description:
+ * description:   This function confirms an ajax request
  *
- * parameters:
+ * parameters: none
  *
  * return:
  *****************************************************************************/

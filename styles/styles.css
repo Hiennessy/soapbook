@@ -37,9 +37,8 @@ input {
     height: 50px;
     border: 1px solid black;
     border-radius: 10px;
-    /* box-shadow: 1px 1px 1px;  */
     font-size: 24pt;
-    background-color: rgb(199, 238, 255); 
+    background-color: rgb(219, 255, 213); 
 
 }
 
@@ -61,7 +60,6 @@ input:focus::placeholder {
     height: 50px;
     font-size: 18pt;
     font-family: Georgia, Verdana, sans-serif;
-    /* box-shadow: 2px 2px 2px; */
     border: 1px solid black;
 }
 

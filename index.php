@@ -17,7 +17,7 @@ include 'functions/functions.php';
 <body>
     <div class="container">
         <div class="searchdiv">
-            <form action="" autocomplete="off">
+            <form id="search-frm" action="functions/functions.php" method="post" autocomplete="off">
                 <input type="text" name="search" id="searchinput" placeholder="enter soap name to search">
             </form>
         </div>
