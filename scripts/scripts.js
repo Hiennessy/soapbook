@@ -1,52 +1,36 @@
-function ajaxSuggest() {
+var $xhr     = new XMLHttpRequest();                   // Set global xhr object
 
-   var $form = document.getElementById("search-frm");
-   var $action = $form.getAttribute("action");
-   var $form_data = new FormData($form);  // create FormData object, returns form name attributes
+/*  This function will take the value typed into the search bar
+*   and send the value to php by ajax.  PHP will then send back value
+*   as a response.  This function will then change the add button inner html
+*   to show the type value.  This function will be changed later to return
+*   soap name suggestions based on typed input.  PHP will process typed input
+*   and return suggestions.  JS will then create a select list of the suggestions
+*
+*/
+function suggest() {
 
-// Create Ajax request, send, and receive.
-   var $xhr = new XMLHttpRequest();
-   // set a handler function to run when ready state change occurs
-   $xhr.onreadystatechange = function () {
-     if($xhr.readyState == 4 && $xhr.status == 200) {
-       var $result = $xhr.responseText; // set $result to form data provided by PHP and in JSON format
-       var $jsonObj = JSON.parse($result); // convert JSON to actual objects
-       changesearch($jsonObj.search);
-       // $json should have data returned from PHP, do something with it, like call a function to display, or add recipes...etc.
-     }
-   }
-   $xhr.open('POST', $action, true);
-   $xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-   $xhr.send($form_data);
+  var $searchvalue = $searchbar.value;                       // Get typed value from search input 
 
-}
+  var $form        =  document.getElementById("search-frm");  // Get form DOM object from form id, to get same action
+  var $action      =  $form.getAttribute("action");           // Get form action and save in variable
 
-function changesearch($text) {
+  var $formdata    =  new FormData();                         // Create a form data object to send to server with xhr
+  $formdata.append("search",$searchvalue);                    // Append typed value from search input into form data object
 
-   var $btn = document.getElementById("all-rcp");
-   $btn.innerHTML = $text;
+// Now do ajax request and send form data
+// Function below will run when there is an xhr state change
 
+  $xhr.onreadystatechange = function () {
+    if($xhr.readyState == 4 && $xhr.status == 200) {  // Confirm http request is done(4) and succeeded(200) 
+      var $ajaxResp = $xhr.responseText;              // Set a variable to the server response text
+      var $jsonObj = JSON.parse($ajaxResp);           // Response text is a string in JSON format, use JSON.parse to turn to object
+      $addbtn.innerHTML = $jsonObj.search;         // Use return data to change HTML page, can also call functions here         
+    }
+  }
 
-}
-
-function ajaxAdd() {
-
-   var $action = "functions/functions.php";
-  //  var $string = 'button=add-rcp';
-
-// Create Ajax request, send, and receive.
-   var $xhr = new XMLHttpRequest();
-   // set a handler function to run when ready state change occurs
-   $xhr.onreadystatechange = function () {
-     if($xhr.readyState == 4 && $xhr.status == 200) {
-       var $result = $xhr.responseText; // set $result to form data provided by PHP and in JSON format
-       var $jsonObj = JSON.parse($result); // convert JSON to actual objects
-       changesearch($jsonObj.search);
-       // $json should have data returned from PHP, do something with it, like call a function to display, or add recipes...etc.
-     }
-   }
-   $xhr.open("POST", $action, true);
-   $xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-   $xhr.send('name=button');
+  $xhr.open("POST",$action,true);                                // Start http ajax POST request
+  $xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');   // Set request headers to let server know it is ajax request
+  $xhr.send($formdata);                                          // Send form data object to server with xhr
 
 }

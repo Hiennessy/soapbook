@@ -53,14 +53,14 @@ function ajaxRequest() {
   if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
 
     // $input_text = isset($_POST['search']) ? $_POST['search']: 'did not work';
-    $input_text = $_POST['name'];
-    echo json_encode(array('search'=>$input_text));
+    $searchtext = $_POST['search'];
+    echo json_encode(array('search'=>$searchtext));
     
   } else {
 
     // echo json_encode(array('search'=>'Error'));
-    $input_text = $_POST['name'];
-    echo json_encode(array('search'=>$input_text));
+    $searchtext = $_POST['search'];
+    echo json_encode(array('search'=>$searchtext));
 
   }
 

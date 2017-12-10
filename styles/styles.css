@@ -63,3 +63,8 @@ input:focus::placeholder {
     border: 1px solid black;
 }
 
+.btn:hover {
+    background-color: lightcyan;
+    cursor: pointer;
+}
+
