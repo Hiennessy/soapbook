@@ -12,14 +12,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Soapbook</title>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="searchdiv">
             <form id="search-frm" action="functions/functions.php" method="post" autocomplete="off">
                 <input type="text" name="search" id="searchinput" placeholder="enter soap name to search">
-                <button class="btn" id="search-btn"><i class="fas fa-search"></i></button>
+                <button class="btn" id="search-btn">submit</button>
             </form>
         </div>
         <div class="btndiv">
