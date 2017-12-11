@@ -8,7 +8,7 @@ var $xhr     = new XMLHttpRequest();                   // Set global xhr object
 *   and return suggestions.  JS will then create a select list of the suggestions
 *
 */
-function suggest() {
+function ajaxSuggest() {
 
   var $searchvalue = $searchbar.value;                       // Get typed value from search input 
 
@@ -16,7 +16,7 @@ function suggest() {
   var $action      =  $form.getAttribute("action");           // Get form action and save in variable
 
   var $formdata    =  new FormData();                         // Create a form data object to send to server with xhr
-  $formdata.append("search",$searchvalue);                    // Append typed value from search input into form data object
+  $formdata.append("searchval",$searchvalue);                    // Append typed value from search input into form data object
 
 // Now do ajax request and send form data
 // Function below will run when there is an xhr state change
@@ -24,8 +24,8 @@ function suggest() {
   $xhr.onreadystatechange = function () {
     if($xhr.readyState == 4 && $xhr.status == 200) {  // Confirm http request is done(4) and succeeded(200) 
       var $ajaxResp = $xhr.responseText;              // Set a variable to the server response text
-      var $jsonObj = JSON.parse($ajaxResp);           // Response text is a string in JSON format, use JSON.parse to turn to object
-      $addbtn.innerHTML = $jsonObj.search;         // Use return data to change HTML page, can also call functions here         
+      var $searchval = JSON.parse($ajaxResp);           // Response text is a string in JSON format, use JSON.parse to turn to object
+      showSuggest($searchval);                          // Call showSuggest function and give jsonObj as parameter         
     }
   }
 
@@ -33,4 +33,9 @@ function suggest() {
   $xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');   // Set request headers to let server know it is ajax request
   $xhr.send($formdata);                                          // Send form data object to server with xhr
 
+}
+
+function showSuggest($val) {
+  $testdiv.style.display = "block";
+  $testdiv.innerHTML = $val.searchval;
 }

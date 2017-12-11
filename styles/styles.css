@@ -61,6 +61,8 @@ input:focus::placeholder {
     font-size: 18pt;
     font-family: Georgia, Verdana, sans-serif;
     border: 1px solid black;
+    position: relative;
+    left: 10px;
 }
 
 .btn:hover {
@@ -68,3 +70,23 @@ input:focus::placeholder {
     cursor: pointer;
 }
 
+#search-btn {
+    height: 40px;
+    border-radius: 10px;
+    border: 0px;
+    position: relative;
+    top: -5px;
+    left: -50px;
+    background-color: rgb(190, 190, 190)
+}
+
+#search-btn:hover {
+    background-color: rgb(40, 161, 231);
+    cursor: pointer;
+}
+
+/* Below div is just a test div, used to test function of displaying or hiding the div */
+#testdiv {
+    display: none;
+
+}
