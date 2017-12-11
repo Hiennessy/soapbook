@@ -27,8 +27,7 @@
             <button class="btn" id="add-rcp">Add Recipe</button>
             <button class="btn" id="all-rcp">See All Recipes</button>
         </div>
-        <div id="testdiv">
-        This is a test div, it should appear if there is something typed in the search bar
+        <div class="box" id="testdiv">
         </div>
     </div>
 </body>
