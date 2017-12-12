@@ -1,6 +1,11 @@
 Typing search in search input
-1. Onkeyup - js function will run ajaxSearch with typed letter as form data to php
+1. Onkeyup - js function will run ajaxSearch with typed letter as form data to php - done
 2. PHP will detect ajax request, then send back list of suggestions
+   - First PHP will do a query for all soap names
+   - Then run a matching function with regex and return all matches
+   - PHP will then send back matches as json
+   - Then either js or php will somehow draw a table of the suggestions into the box div
+
 3. js function will take list of suggestions and display them in a div
 
 Clicking search button

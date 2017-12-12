@@ -34,11 +34,13 @@ body {
 
 .box {
     position: relative;
-    border: 1px solid red;
+    justify-self: start;
+    align-self: start;
     grid-area: button;
+    border: 1px solid black;
     z-index:  1;
     background-color: white;
-    width: 700px;
+    width: 702px;
 }
 
 input {
