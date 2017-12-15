@@ -8,42 +8,33 @@ body {
     background: url(../images/soap.jpg);
 }
 
+/* ***************************************************************************** */
+/* This is the middle container - it contains the search div and the button div  */
+/* ***************************************************************************** */
+
 .container {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 100px 100px; 
     grid-template-areas:
-    "search search"
-    "button button";
+    "search-div search-div"
+    "button-div button-div";
 
 }
 
-.searchdiv {
+/* ***************************************************************************** */
+/* This is the search div - it contains the form that has the search bar and     */
+/* submit button                                                                 */
+/* ***************************************************************************** */
+
+.search-div {
     justify-self: center;
     align-self: end;
-    grid-area: search;
+    grid-area: search-div;
 
 }
 
-.btndiv {
-    justify-self: center;
-    align-self: center;
-    grid-area: button;
-
-}
-
-.box {
-    position: relative;
-    justify-self: start;
-    align-self: start;
-    grid-area: button;
-    border: 1px solid black;
-    z-index:  1;
-    background-color: white;
-    width: 702px;
-}
-
-input {
+.search-div__form__input {
     width: 700px;
     height: 50px;
     border: 1px solid black;
@@ -53,35 +44,20 @@ input {
 
 }
 
-input::placeholder {
+.search-div__form__input::placeholder {
     opacity: 0.2;
     text-align: center;
 }
 
-input:focus {
+.search-div__form__input--whitebg:focus {
     background-color:white;
-
 }
 
-input:focus::placeholder {
+.search-div__form__input:focus::placeholder {
     color: transparent;
 }
 
-.btn {
-    height: 50px;
-    font-size: 18pt;
-    font-family: Georgia, Verdana, sans-serif;
-    border: 1px solid black;
-    position: relative;
-    left: 10px;
-}
-
-.btn:hover {
-    background-color: lightcyan;
-    cursor: pointer;
-}
-
-#search-btn {
+.search-div__form__button {
     height: 40px;
     border-radius: 10px;
     border: 0px;
@@ -92,13 +68,52 @@ input:focus::placeholder {
     font-size: 12pt;
 }
 
-#search-btn:hover {
+.search-div__form__button--bluebg:hover {
     background-color: rgb(40, 161, 231);
     cursor: pointer;
 }
 
-/* Below div is just a test div, used to test function of displaying or hiding the div */
-#testdiv {
-    display: none;
+/* ***************************************************************************** */
+/* This is the button div - it contains the two buttons, add recipe and see      */
+/* all recipes                                                                   */
+/* ***************************************************************************** */
 
+.button-div {
+    justify-self: center;
+    align-self: center;
+    grid-area: button-div;
+}
+
+.button-div__button {
+    height: 50px;
+    font-size: 18pt;
+    font-family: Georgia, Verdana, sans-serif;
+    border: 1px solid black;
+    position: relative;
+    left: 10px;
+}
+
+.button-div__button--cyanbg:hover {
+    background-color: lightcyan;
+    cursor: pointer;
+}
+
+/* ***************************************************************************** */
+/* This is the suggest div - it contains the pop up box that shows suggestions   */
+/* ***************************************************************************** */
+
+.suggest-div {
+    position: relative;
+    justify-self: start;
+    align-self: start;
+    grid-area: button-div;
+    border: 1px solid black;
+    z-index:  1;
+    background-color: white;
+    width: 702px;
+    display: none;
+}
+
+.suggest-div--show{
+    display: block; 
 }

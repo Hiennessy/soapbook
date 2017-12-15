@@ -36,6 +36,6 @@ function ajaxSuggest() {
 }
 
 function showSuggest($val) {
-  $testdiv.style.display = "block";
-  $testdiv.innerHTML = $val.searchval;
+  $suggestbox.classList.add("suggest-div--show");
+  $suggestbox.innerHTML = $val.searchval;
 }
