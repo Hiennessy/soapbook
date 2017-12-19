@@ -1,0 +1,4 @@
+TODO:
+-- Work on PHP function of suggesting soap names from the database, based on typed input 
+    -- To get soap names, will need to pull all names from db, then do something like an fnmatch, using regex matching
+    -- Example, if o is typed, then find all names starting with o.  If ora is typed, then find all names that have ora, like orange
