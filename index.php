@@ -15,16 +15,19 @@
 </head>
 <body>
     <div class="container">
+    <!-- ********** Search Div  ***********  -->
         <div class="search-div">
             <form class="search-div__form" id="search-frm" action="functions/functions.php" method="post" autocomplete="off">
                 <input class="search-div__form__input search-div__form__input--whitebg" type="text" name="search" id="search-input" placeholder="enter soap name to search">
                 <button class="search-div__form__button search-div__form__button--bluebg" id="search-btn">submit</button>
             </form>
         </div>
+    <!-- ********** Button Div ************  -->
         <div class="button-div">
             <button class="button-div__button button-div__button--cyanbg" id="add-rcp">Add Recipe</button>
             <button class="button-div__button button-div__button--cyanbg" id="all-rcp">See All Recipes</button>
         </div>
+    <!-- ********** Suggest Div ***********  -->
         <div class="suggest-div" id="suggest">
         </div>
     </div>
