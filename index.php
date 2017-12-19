@@ -16,40 +16,21 @@
 <body>
     <div class="container">
     <!-- ********** Search Div  ***********  -->
-        <div class="search-div">
-            <form class="search-div__form" id="search-frm" action="functions/functions.php" method="post" autocomplete="off">
-                <input class="search-div__form__input search-div__form__input--whitebg" type="text" name="search" id="search-input" placeholder="enter soap name to search">
-                <button class="search-div__form__button search-div__form__button--bluebg" id="search-btn">submit</button>
+        <div class="srch-div">
+            <form class="srch-div__form" id="srch-frm" action="functions/functions.php" method="post" autocomplete="off">
+                <input class="srch-div__form__input srch-div__form__input--whitebg" type="text" name="search" id="srch-input" placeholder="enter soap name to search">
+                <button class="srch-div__form__button srch-div__form__button--bluebg" id="srch-btn">submit</button>
             </form>
         </div>
     <!-- ********** Button Div ************  -->
-        <div class="button-div">
-            <button class="button-div__button button-div__button--cyanbg" id="add-rcp">Add Recipe</button>
-            <button class="button-div__button button-div__button--cyanbg" id="all-rcp">See All Recipes</button>
+        <div class="btn-div">
+            <button class="btn-div__btn btn-div__btn--cyanbg" id="add-rcp-btn">Add Recipe</button>
+            <button class="btn-div__btn btn-div__btn--cyanbg" id="all-rcp-btn">See All Recipes</button>
         </div>
     <!-- ********** Suggest Div ***********  -->
-        <div class="suggest-div" id="suggest">
+        <div class="suggest-div" id="suggest-box">
         </div>
     </div>
 </body>
 <script src="scripts/scripts.js"></script>
-<script>
-    
-var $searchbar    = document.getElementById("search-input");
-var $searchbtn    = document.getElementById("search-btn");
-var $addbtn       = document.getElementById("add-rcp");
-var $allbtn       = document.getElementById("all-rcp");
-var $suggestbox   = document.getElementById("suggest");
-
-// On keyup after typing in search input, run function that will check if searchbar is empty or not
-// If not, then call ajaxSuggest function
-$searchbar.addEventListener("keyup", function() {
-                             if ($searchbar.value == "") {
-                                $suggestbox.classList.remove("suggest-div--show"); 
-                             } else {
-                                  ajaxSuggest();
-                               } 
-}); 
-
-</script>
 </html>

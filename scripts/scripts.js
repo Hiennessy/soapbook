@@ -2,17 +2,39 @@
 // Set global xhr object
 var $xhr     = new XMLHttpRequest();
 
-/*  This function will take the value typed into the search bar
-*   and send the value to php by ajax.  PHP will then send back value
-*   as a response. This function will return soap name suggestions based on typed input.  
-*   PHP will process typed input and return suggestions.  JS will then create a select list of the suggestions
-*/
+// Set DOM variables
+var $searchbar    = document.getElementById("srch-input");
+var $searchbtn    = document.getElementById("srch-btn");
+var $addbtn       = document.getElementById("add-rcp-btn");
+var $allbtn       = document.getElementById("all-rcp-btn");
+var $suggestbox   = document.getElementById("suggest-box");
+
+/* **************************************************************************** */
+/*  On keyup after typing in search input, run function that will               */
+/*  check if searchbar is empty or not, if not, then call ajaxSuggest function  */
+/* **************************************************************************** */
+
+$searchbar.addEventListener("keyup", function() {
+  if ($searchbar.value == "") {
+    $suggestbox.classList.remove("suggest-div--show");
+  } else {
+      ajaxSuggest();
+    }
+})
+
+/* *************************************************************************** */
+/* This function will take the value typed into the search bar                 */
+/* and send the value to php by ajax.  PHP will then send back value           */ 
+/* as a response. This function will return soap name suggestions              */ 
+/* based on typed input. PHP will process typed input and return suggestions.  */ 
+/* JS will then create a select list of the suggestions                        */
+/* *************************************************************************** */
 
 function ajaxSuggest() {
 
   var $searchvalue = $searchbar.value;                        // Get typed value from search input 
 
-  var $form        =  document.getElementById("search-frm");  // Get form DOM object from form id, to get same action
+  var $form        =  document.getElementById("srch-frm");  // Get form DOM object from form id, to get same action
   var $action      =  $form.getAttribute("action");           // Get form action and save in variable
 
   var $formdata    =  new FormData();                         // Create a form data object to send to server with xhr
@@ -35,7 +57,13 @@ function ajaxSuggest() {
 
 }
 
+/* ******************************************************************************** */
+/*  This function will take the value returned from PHP,                            */
+/*  add the show modifier class to the suggest-div, then add the returned value     */
+/*  to the suggest-box innerhtml, thereby showing the type value in the suggest-box */
+/* ******************************************************************************** */
+
 function showSuggest($val) {
-  $suggestbox.classList.add("suggest-div--show");
-  $suggestbox.innerHTML = $val.searchval;
+  $suggestbox.classList.add("suggest-div--show");                // Add show modifier class to suggest-div, which will show the suggest-box
+  $suggestbox.innerHTML = $val.searchval;                        // Add text that was typed in the search input and show it in suggest-box
 }
