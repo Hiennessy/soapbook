@@ -38,6 +38,36 @@ function mysql($query) {
 }
 
 /******************************************************************************
+ * function name: getSoapName 
+ *
+ * description:   This function will do a qry to get all soap names from 
+ *                the database 
+ * 
+ * parameters: none
+ *
+ * return: an array of soap names 
+ *****************************************************************************/
+
+function getSoapName() {
+  $qry = "SELECT name as Name
+          FROM soaps";
+  
+  $return = mysql($qry);
+
+  while ($row = mysqli_fetch_assoc($return)) {
+      $rowArr[] = array (
+          'soap_name'  => $row['Name'],
+      );
+  }
+
+  foreach ($rowArr as $x) {
+    echo "Soap Name: " . $x['soap_name'] . "</br>";
+  }
+
+};
+
+
+/******************************************************************************
  * function name: ajaxRequest
  *
  * description:   This function confirms an ajax request, then takes 
@@ -66,6 +96,7 @@ function ajaxRequest() {
 
 }
 
+
 // run ajaxRequest function as soon as this page is called
-ajaxRequest();
+// ajaxRequest();
 ?>
